@@ -86,3 +86,45 @@ nav {
   display: flex;
   justify-content: space-between;
 }
+
+form {
+  border: 3px solid darkgreen;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input, textarea {
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+input {
+  height: 25px;
+}
+
+textarea {
+  height: 60px;
+  width: 75%;
+  max-width: 500px;
+}
+
+button {
+  width: 150px;
+  height: 75px;
+  margin: 10px auto;
+  border-radius: 10px;
+  background-color: #265923;
+  color: #faf9d9;
+  box-shadow: 3px 3px 3px lightgray;
+  border: none;
+  font-size: 18pt;
+}
+
+button:hover {
+  cursor:pointer;
+}

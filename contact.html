@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,22 +8,40 @@
   <title>Contact</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <header>
     <div class="outer_logo_box">
       <div class="logo_box">
         <img src="images/logo.png" alt="Logo" class="logo">
-        </div>
       </div>
-      <nav>
-      <a  href="index.html">Home</a>
-       <a href="bucks.html">Bucks</a>
-       <a href="does.html">Does</a>
-       <a href="available.html">Available Goats</a>
-       <a class="active" href="contact.html">Contact</a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="bucks.html">Bucks</a>
+      <a href="does.html">Does</a>
+      <a href="available.html">Available Goats</a>
+      <a class="active" href="contact.html">Contact</a>
     </nav>
   </header>
   <main>
-  <p>TBD</p>
+    <h1>Contact Us!</h1>
+    <form
+      action="https://formspree.io/f/xwkggywz"
+      method="POST">
+      <label>
+        Name:
+        <input type="text" name="name" required>
+      </label>
+      <label>
+        Email address:
+        <input type="email" name="email" required>
+      </label>
+      <label>
+        Your message:
+        <textarea name="message" required></textarea>
+      </label>
+      <button type="submit">Send Message</button>
+    </form>
   </main>
 </body>
