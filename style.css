@@ -4,22 +4,25 @@
   width: 50%;
 }
 
+.outer_logo_box {
+  display: flex;
+  justify-content: center;
+}
 .logo_box {
  border: 3px solid #265923;
  margin-bottom: 10px;
  width: 50%;
- padding: 5%;
- margin-left: 25%;
- margin-right: 25%;
+ padding: 20px;
  background-color: white;
  border-radius: 50%;
+ max-width: 200px;
 }
 
 .logo {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
+  width: 100%;
   background-color: white;
   border-radius: 30%;
 }
