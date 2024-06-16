@@ -1,0 +1,10 @@
+.goat {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+body {
+  margin: 10%
+}
