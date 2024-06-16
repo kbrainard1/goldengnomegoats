@@ -1,5 +1,6 @@
 .goat {
   display: block;
+  margin-top: 20px;
   margin-left: 3%;
   width: 50%;
 }
@@ -8,6 +9,7 @@
   display: flex;
   justify-content: center;
 }
+
 .logo_box {
  border: 3px solid #265923;
  margin-bottom: 10px;
@@ -16,6 +18,23 @@
  background-color: white;
  border-radius: 50%;
  max-width: 200px;
+}
+
+.goat_title {
+  font-size: 16pt;
+}
+
+.goat_link {
+  font-size: 16pt;
+  display: block;
+}
+
+.sale_desc {
+  margin-left: 5%;
+}
+
+details {
+  margin-bottom: 20px;
 }
 
 .logo {
@@ -57,7 +76,13 @@ nav a:hover, .active {
   color: #265923;
 }
 
+header {
+  text-align: center;
+}
+
 nav {
+  margin: auto;
+  max-width: 400px;
   display: flex;
   justify-content: space-between;
 }
