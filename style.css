@@ -1,10 +1,22 @@
 .goat {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 3%;
   width: 50%;
 }
 
 body {
   margin: 10%
+}
+
+nav a {
+  text-decoration: none;
+  font-size: medium;
+  border-radius: 10px;
+  background-color: #265923;
+  color: #fcfac0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
 }
