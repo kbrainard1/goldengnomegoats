@@ -216,3 +216,9 @@ button:focus {
   height: 100%;
   padding: 0px;
 }
+
+.welcome {
+  display: block;
+  margin: auto;
+  width: 50%;
+}
