@@ -5,7 +5,7 @@ function displayModal(index, galleryId) {
     carouselIndex = index;
     carouselGallery = document.getElementById(galleryId);
     displayImage();
-    document.querySelector(".modal").style.display = "block";
+    document.querySelector(".modal").style.display = "flex";
 }
 
 function closeModal() {
@@ -31,7 +31,8 @@ function nextImage() {
 
 function displayImage() {
     var nextImage = carouselGallery.children[carouselIndex].getAttribute("full_size");
-    document.querySelector(".modal_content").style.backgroundImage = "url('" + nextImage + "')";
+    //document.querySelector(".modal_content").style.backgroundImage = "url('" + nextImage + "')";
+    document.querySelector(".modal_image").src = nextImage;
     checkBounds();
 }
 
