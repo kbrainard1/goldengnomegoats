@@ -6,15 +6,18 @@ function displayModal(index, galleryId) {
     carouselGallery = document.getElementById(galleryId);
     displayImage();
     document.querySelector(".modal").style.display = "flex";
+    document.querySelector(".modal_close_layer").style.display = "block";
 }
 
 function closeModal() {
     carouselIndex = 0;
     document.querySelector(".modal").style.display = "none";
+    document.querySelector(".modal_close_layer").style.display = "none";
 }
 
 window.onclick = function (event) {
-    if (event.target == document.querySelector(".modal")) {
+    if (event.target == document.querySelector(".modal") ||
+    event.target == document.querySelector(".modal_close_layer")) {
         closeModal();
     }
 }
@@ -88,8 +91,14 @@ function resize() {
     // mobile is unhelpful about the positioning here
     // We want it to hover just above the gallery, centered
     // in the visible window
+    // TODO: actually, inset it by at most one thumbnail (100px)
+    var galleryLocation = carouselGallery.getBoundingClientRect();
     var remainingWidth = (windowWidth - adjustedWidth)/2;
-    var remainingHeight = (windowHeight - adjustedHeight)/2;
+
+    // inset it by at most one thumbnail (otherwise the height looks weird on wide screens)
+    if (remainingWidth > galleryLocation.left + 100) {
+        remainingWidth = galleryLocation.left + 100;
+    }
     modalContent.style.marginLeft = remainingWidth + "px";
     
     var scrollY = window.scrollY;
@@ -98,8 +107,8 @@ function resize() {
         scrollY = 0;
     }
 
-    var galleryLocation = carouselGallery.getBoundingClientRect();
-    var newHeight = galleryLocation.top - adjustedHeight + scrollY - 10;
+    
+    var newHeight = galleryLocation.top - adjustedHeight + scrollY - 15;
     modalContent.style.marginTop = newHeight + "px";
 
     modalContent.style.visibility = "";

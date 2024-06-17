@@ -141,25 +141,15 @@ button:focus {
   max-height: 100px;
 }
 
-.test {
-  width: 654px;
-  height: 700px;
-  border: 5px solid green;
-}
-
 .modal {
   display: none;
   position: absolute;
   left: 0;
   top: 0;
-  bottom: 0;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   height: 100%;
   padding: 0px;
-}
-
-.modal_image {
 }
 
 .modal_content {
@@ -214,4 +204,15 @@ button:focus {
 
 .dummy_image {
   visibility: hidden;
+}
+
+.modal_close_layer {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
 }
