@@ -77,24 +77,30 @@ function resize() {
             adjustedHeight = imageHeight * heightFraction;
         }
     }
-    // offset the content (mobile is being weird about doing this normally)
-    var remainingWidth = (windowWidth - adjustedWidth)/2;
-    var remainingHeight = (windowHeight - adjustedHeight)/2;
-    
-    // update visible components, set them to be visible
+
+    // update visible component dimensions
     modalImage.style.width = adjustedWidth + "px";
     modalImage.style.height = adjustedHeight + "px";
     var modalContent = document.querySelector(".modal_content");
     modalContent.style.width = adjustedWidth + "px";
     modalContent.style.height = adjustedHeight + "px";
-    modalContent.style.marginLeft = remainingWidth + "px";
-    modalContent.style.marginTop = remainingHeight + "px";
 
-    // put the X where it should be, since we're doing all
-    // this nonsense manually anyway
-    var exitModal = document.querySelector(".close_modal");
-    exitModal.style.top = (remainingHeight - 40) + "px";
-    exitModal.style.right = (remainingWidth - 40) + "px";
+    // mobile is unhelpful about the positioning here
+    // We want it to hover just above the gallery, centered
+    // in the visible window
+    var remainingWidth = (windowWidth - adjustedWidth)/2;
+    var remainingHeight = (windowHeight - adjustedHeight)/2;
+    modalContent.style.marginLeft = remainingWidth + "px";
+    
+    var scrollY = window.scrollY;
+    // safari
+    if (scrollY < 0) {
+        scrollY = 0;
+    }
+
+    var galleryLocation = carouselGallery.getBoundingClientRect();
+    var newHeight = galleryLocation.top - adjustedHeight + scrollY - 10;
+    modalContent.style.marginTop = newHeight + "px";
 
     modalImage.style.visibility = "";
 }
