@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,30 +8,56 @@
   <title>Bucks</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <header>
     <div class="outer_logo_box">
       <div class="logo_box">
         <img src="images/logo.png" alt="Logo" class="logo">
-        </div>
       </div>
-       <nav>
+    </div>
+    <nav>
       <a href="index.html">Home</a>
-       <a class="active" href="bucks.html">Bucks</a>
-       <a href="does.html">Does</a>
-       <a href="available.html">Available Goats</a>
-       <a href="contact.html">Contact</a>
+      <a class="active" href="bucks.html">Bucks</a>
+      <a href="does.html">Does</a>
+      <a href="available.html">Available Goats</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
+  <div class="modal">
+    <div class="modal_content">
+      <span class="close_modal" onclick="closeModal()">&times;</span>
+      <span class="prev_image" onclick="prevImage()">
+        <span class="inner_nav">&lt;</span>
+      </span>
+      <img class="modal_image" src="">
+      <span class="next_image" onclick="nextImage()"><span class="inner_nav">&gt;</span><span>
+    </div>
+  </div>
   <main>
-<h1>Current Herd Sires: </h1>
+    <h1>Current Herd Sires: </h1>
+    <details id="pepe">
+      <summary class="goat_title">The Everlasting Farm Pepe (<a
+          href="https://genetics.adga.org/GoatDetail.aspx?RegNumber=L002276784">Pedigree</a>)
+      </summary>
+      <p>Photos coming soon</p>
+    </details>
 
-<h3 id="pepe">The Everlasting Farm Pepe (<a href="https://genetics.adga.org/GoatDetail.aspx?RegNumber=L002276784">Pedigree</a>)</h3>
-<p>Pictures Coming Soon</p>
-  
-<h3 id="yoshi">Ikkida Yoshi (<a href="https://genetics.adga.org/GoatDetail.aspx?RegNumber=L002140214">Pedigree</a>)</h3>
-
-<img src="images/yoshi.jpg" alt="Yoshi" class="goat">
-</main>
-<script src="main.js"></script>
+    <details id="Jolene">
+      <summary class="goat_title">Ikkida Yoshi (<a
+          href="https://genetics.adga.org/GoatDetail.aspx?RegNumber=L002140214">Pedigree</a>)
+        <img src="images/yoshi.jpg" alt="Yoshi" class="goat">
+      </summary>
+      <p>Yoshi is a gentle giant - weighing in most recently at 230 lbs, he's got some serious length of body!
+        Fortunately, he's just as sweet as he is tall - the bottom of the pecking order in the buck pen, and easy to
+        handle even when in rut. He worked himself out of a job at his last farm, leaving behind a number of
+        high-producing flashy babies. We're excited to see what he does here!</p>
+      <div id="YoshiGallery">
+        <img class="gallery" src="images/yoshi.jpg" full_size="images/yoshi.jpg"
+          onclick="displayModal(0, 'YoshiGallery')">
+      </div>
+    </details>
+  </main>
+  <img class="dummy_image" src="" onload="resize()">
+  <script src="main.js"></script>
 </body>
