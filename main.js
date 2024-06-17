@@ -79,6 +79,7 @@ function resize() {
     }
     // offset the content (mobile is being weird about doing this normally)
     var remainingWidth = (windowWidth - adjustedWidth)/2;
+    var remainingHeight = (windowHeight - adjustedHeight)/2;
     
     // update visible components, set them to be visible
     modalImage.style.width = adjustedWidth + "px";
@@ -87,6 +88,14 @@ function resize() {
     modalContent.style.width = adjustedWidth + "px";
     modalContent.style.height = adjustedHeight + "px";
     modalContent.style.marginLeft = remainingWidth + "px";
+    modalContent.style.marginTop = remainingHeight + "px";
+
+    // put the X where it should be, since we're doing all
+    // this nonsense manually anyway
+    var exitModal = document.querySelector(".close_modal");
+    exitModal.style.top = (remainingHeight - 40) + "px";
+    exitModal.style.right = (remainingWidth - 40) + "px";
+
     modalImage.style.visibility = "";
 }
 
