@@ -42,10 +42,22 @@ function displayImage() {
 // in CSS in both firefox and chromium.
 // Also needs a dummy image to prevent the size from "sticking" across images
 function resize() {
-    const windowWidth = window.innerWidth * 0.7;
-    const windowHeight = window.innerHeight * 0.7;
-    var modalImage =  document.querySelector(".modal_image");
-    var dummyImage =  document.querySelector(".dummy_image");
+    var windowWidth = window.innerWidth * 0.7;
+    var windowHeight = window.innerHeight * 0.7;
+
+    // ugh, mobile
+    var screenWidth = screen.availWidth * 0.7;
+    var screenHeight = screen.availHeight * 0.7;
+    if (windowWidth > screenWidth) {
+        windowWidth = screenWidth;
+    }
+    if (windowHeight > screenHeight) {
+        windowHeight = screenHeight;
+    }
+
+    // determine limiting dimension for image scaling
+    var modalImage = document.querySelector(".modal_image");
+    var dummyImage = document.querySelector(".dummy_image");
     const imageWidth = dummyImage.width;
     const imageHeight = dummyImage.height;
 
@@ -63,6 +75,7 @@ function resize() {
         }
     }
 
+    // update visible components, set them to be visible
     modalImage.style.width = adjustedWidth + "px";
     modalImage.style.height = adjustedHeight + "px";
     document.querySelector(".modal_content").style.width = adjustedWidth + "px";
