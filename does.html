@@ -26,7 +26,11 @@
   </header>
   <div class="modal">
     <div class="modal_content">
-      <img class="modal_image" alt="Expanded Image" src="images/Lorraine.jpg">
+      <span class="close_modal" onclick="closeModal()">&times;</span>
+      <span class="prev_image" onclick="prevImage()">
+        <span class="inner_nav">&lt;</span>
+      </span>
+      <span class="next_image" onclick="nextImage()"><span class="inner_nav">&gt;</span><span>
     </div>
   </div>
   <main>
@@ -34,12 +38,15 @@
     <details id="Jolene">
       <summary class="goat_title">Little Orchard NL Jolene (<a
           href="https://genetics.adga.org/GoatDetail.aspx?RegNumber=L002233942">Pedigree</a>)
-        <img src="images/Jolene.jpg" alt="Jolene" class="goat">
+        <img src="images/Jolene_thumb.jpg" alt="Jolene" class="goat">
       </summary>
       <p>Jolene has one leg of her ADGA championship, and produces approximately 8-10 lbs milk per day. She has a very
         sweet temperament, and produces roughly 1oz of cashmere with a 1" staple length. No issues with parasites, and
         has never had a problem kidding</p>
-      <img class="gallery" src="images/Jolene_thumb.jpg" onclick="displayModal('images/Jolene.jpg')">
+      <div id="JoleneGallery">
+      <img class="gallery" src="images/Jolene_thumb.jpg" full_size="images/Jolene.jpg" onclick="displayModal(0, 'JoleneGallery')">
+      <img class="gallery" src="images/Lorraine_thumb.jpg" full_size="images/Lorraine.jpg"  onclick="displayModal(1, 'JoleneGallery')">
+    </div>
     </details>
 
     <details id="Lorraine">

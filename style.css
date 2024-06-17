@@ -151,7 +151,51 @@ button:focus {
   height: 100%;
 }
 
-.modal_image {
-  max-width: 70%;
-  max-height: 70%;
+.modal_content {
+  width: 70%;
+  height: 70%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
 }
+
+.modal_content span {
+  font-size: 36pt;
+  font-weight: bold;
+}
+
+.close_modal {
+  display: block;
+  position:fixed;
+  top: 10px;
+  right: 10px;
+}
+
+.close_modal:hover, .inner_nav:hover {
+  cursor: pointer;
+}
+
+.prev_image, .next_image { 
+  display: inline-block;
+  height: 50%;
+ padding-top: 30%;
+ opacity: 40%;
+}
+
+.inner_nav {
+  border-radius: 2px;
+  margin: 20px 3px;
+  background-color: bisque;
+}
+
+.next_image {
+  position: absolute;
+  right: 0;
+}
+
+.prev_image:hover, .next_image:hover {
+  opacity: 40%;
+}
+
+.inline { display: inline; }
+.hidden{ display: none; }
