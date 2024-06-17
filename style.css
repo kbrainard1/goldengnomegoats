@@ -120,11 +120,38 @@ button {
   border-radius: 10px;
   background-color: #265923;
   color: #faf9d9;
-  box-shadow: 3px 3px 3px lightgray;
+  box-shadow: 5px 5px 3px grey;
   border: none;
   font-size: 18pt;
 }
 
 button:hover {
   cursor:pointer;
+}
+
+button:focus {
+  background-color: #faf9d9;
+  color: #265923;
+  box-shadow: none;
+}
+
+.gallery {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  padding: 15%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.modal_image {
+  max-width: 70%;
+  max-height: 70%;
 }
