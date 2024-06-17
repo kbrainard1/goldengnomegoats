@@ -153,16 +153,7 @@ button:focus {
   align-content: center;
 }
 
-.modal_image {
-  max-width: 100%;
-  max-height: 100%;
-}
-
 .modal_content {
-  max-width: 70%;
-  max-height: 70%;
-  background-repeat: no-repeat;
-  background-size: contain;
   position: relative;
 }
 
@@ -184,9 +175,9 @@ button:focus {
 
 .prev_image, .next_image { 
   display: inline-block;
-  height: 50%;
- padding-top: 30%;
- opacity: 40%;
+  position: absolute;
+  top: 40%;
+  opacity: 30%;
 }
 
 .inner_nav {
@@ -196,12 +187,10 @@ button:focus {
 }
 
 .prev_image {
-  position: absolute;
   left: 0;
 }
 
 .next_image {
-  position: absolute;
   right: 0;
 }
 
@@ -211,3 +200,7 @@ button:focus {
 
 .inline { display: inline; }
 .hidden{ display: none; }
+
+.dummy_image {
+  visibility: hidden;
+}
