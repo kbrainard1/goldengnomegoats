@@ -42,18 +42,21 @@ function displayImage() {
 // in CSS in both firefox and chromium.
 // Also needs a dummy image to prevent the size from "sticking" across images
 function resize() {
-    var windowWidth = window.innerWidth * 0.7;
-    var windowHeight = window.innerHeight * 0.7;
+    var windowWidth = window.innerWidth;
+    var windowHeight = window.innerHeight;
 
     // ugh, mobile
-    var screenWidth = screen.availWidth * 0.7;
-    var screenHeight = screen.availHeight * 0.7;
+    var screenWidth = screen.availWidth;
+    var screenHeight = screen.availHeight;
     if (windowWidth > screenWidth) {
         windowWidth = screenWidth;
-    }
+    } 
     if (windowHeight > screenHeight) {
         windowHeight = screenHeight;
     }
+    
+    var smallWindowWidth = windowWidth * 0.7;
+    var smallWindowHeight = windowHeight * 0.7;
 
     // determine limiting dimension for image scaling
     var modalImage = document.querySelector(".modal_image");
@@ -61,8 +64,8 @@ function resize() {
     const imageWidth = dummyImage.width;
     const imageHeight = dummyImage.height;
 
-    const widthFraction = windowWidth / imageWidth;
-    const heightFraction = windowHeight / imageHeight;
+    const widthFraction = smallWindowWidth / imageWidth;
+    const heightFraction = smallWindowHeight / imageHeight;
     var adjustedWidth = imageWidth;
     var adjustedHeight = imageHeight;
     if (widthFraction < 1 || heightFraction < 1) {
@@ -74,12 +77,16 @@ function resize() {
             adjustedHeight = imageHeight * heightFraction;
         }
     }
-
+    // offset the content (mobile is being weird about doing this normally)
+    var remainingWidth = (windowWidth - adjustedWidth)/2;
+    
     // update visible components, set them to be visible
     modalImage.style.width = adjustedWidth + "px";
     modalImage.style.height = adjustedHeight + "px";
-    document.querySelector(".modal_content").style.width = adjustedWidth + "px";
-    document.querySelector(".modal_content").style.height = adjustedHeight + "px";
+    var modalContent = document.querySelector(".modal_content");
+    modalContent.style.width = adjustedWidth + "px";
+    modalContent.style.height = adjustedHeight + "px";
+    modalContent.style.marginLeft = remainingWidth + "px";
     modalImage.style.visibility = "";
 }
 
