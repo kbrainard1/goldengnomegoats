@@ -33,7 +33,7 @@ function displayImage() {
     var nextImage = carouselGallery.children[carouselIndex].getAttribute("full_size");
     document.querySelector(".modal_image").src = nextImage;
     document.querySelector(".dummy_image").src = nextImage;
-    document.querySelector(".modal_image").style.visibility = "hidden";
+    document.querySelector(".modal_content").style.visibility = "hidden";
     checkBounds();
 }
 
@@ -102,7 +102,7 @@ function resize() {
     var newHeight = galleryLocation.top - adjustedHeight + scrollY - 10;
     modalContent.style.marginTop = newHeight + "px";
 
-    modalImage.style.visibility = "";
+    modalContent.style.visibility = "";
 }
 
 function checkBounds() {
