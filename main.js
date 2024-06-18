@@ -89,11 +89,11 @@ function resize() {
     modalContent.style.height = adjustedHeight + "px";
 
     // mobile is unhelpful about the positioning here
-    // We want it to hover just above the gallery, inset by at most one thumbnail (100px)
+    // We want it to hover just above the gallery, inset by at most one thumbnail (100px),
+    // (otherwise the height looks weird on wide screens)
     var galleryLocation = carouselGallery.getBoundingClientRect();
     var remainingWidth = (windowWidth - adjustedWidth)/2;
 
-    // inset it by at most one thumbnail (otherwise the height looks weird on wide screens)
     if (remainingWidth > galleryLocation.left + 100) {
         remainingWidth = galleryLocation.left + 100;
     }
@@ -111,6 +111,8 @@ function resize() {
 
     document.querySelector(".modal_spinner").style.visibility = "hidden";
     modalContent.style.visibility = "";
+    modalContent.scrollIntoView(); // if the gallery was near the top of the page, the image opens out of view, which is weird
+    window.scrollBy(0, -5); // give the image a little space
 }
 
 function checkBounds() {
