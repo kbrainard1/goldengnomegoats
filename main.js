@@ -37,6 +37,7 @@ function displayImage() {
     document.querySelector(".modal_image").src = nextImage;
     document.querySelector(".dummy_image").src = nextImage;
     document.querySelector(".modal_content").style.visibility = "hidden";
+    document.querySelector(".modal_spinner").style.visibility = "";
     checkBounds();
 }
 
@@ -89,9 +90,7 @@ function resize() {
     modalContent.style.height = adjustedHeight + "px";
 
     // mobile is unhelpful about the positioning here
-    // We want it to hover just above the gallery, centered
-    // in the visible window
-    // TODO: actually, inset it by at most one thumbnail (100px)
+    // We want it to hover just above the gallery, inset by at most one thumbnail (100px)
     var galleryLocation = carouselGallery.getBoundingClientRect();
     var remainingWidth = (windowWidth - adjustedWidth)/2;
 
@@ -111,7 +110,11 @@ function resize() {
     var newHeight = galleryLocation.top - adjustedHeight + scrollY - 15;
     modalContent.style.marginTop = newHeight + "px";
 
+    document.querySelector(".modal_spinner").style.visibility = "hidden";
     modalContent.style.visibility = "";
+
+    // keep from messing up page width
+    document.querySelector(".dummy_image").src = ""; 
 }
 
 function checkBounds() {
