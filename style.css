@@ -129,7 +129,7 @@ button:hover {
   cursor:pointer;
 }
 
-button:focus {
+button:active {
   background-color: #faf9d9;
   color: #265923;
   box-shadow: none;
