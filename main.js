@@ -1,6 +1,5 @@
 var carouselThumb = 0;
 var carouselGallery;
-var currentScrollY; // dummy image messes things up a bit
 
 function displayModal(index, galleryId) {
     carouselIndex = index;
