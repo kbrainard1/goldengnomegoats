@@ -215,6 +215,7 @@ button:focus {
   width: 100vw;
   height: 100vh;
   padding: 0px;
+  align-content: center;
 }
 
 .welcome {
@@ -227,5 +228,4 @@ button:focus {
   display: inline-block;
   margin-left: 40%;
   font-size: 24pt;
-  margin-top: 40%;
 }

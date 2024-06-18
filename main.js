@@ -1,5 +1,6 @@
 var carouselThumb = 0;
 var carouselGallery;
+var currentScrollY; // dummy image messes things up a bit
 
 function displayModal(index, galleryId) {
     carouselIndex = index;
@@ -34,8 +35,8 @@ function nextImage() {
 
 function displayImage() {
     var nextImage = carouselGallery.children[carouselIndex].getAttribute("full_size");
+
     document.querySelector(".modal_image").src = nextImage;
-    document.querySelector(".dummy_image").src = nextImage;
     document.querySelector(".modal_content").style.visibility = "hidden";
     document.querySelector(".modal_spinner").style.visibility = "";
     checkBounds();
@@ -64,9 +65,8 @@ function resize() {
 
     // determine limiting dimension for image scaling
     var modalImage = document.querySelector(".modal_image");
-    var dummyImage = document.querySelector(".dummy_image");
-    const imageWidth = dummyImage.width;
-    const imageHeight = dummyImage.height;
+    const imageWidth = modalImage.naturalWidth;
+    const imageHeight = modalImage.naturalHeight;
 
     const widthFraction = smallWindowWidth / imageWidth;
     const heightFraction = smallWindowHeight / imageHeight;
@@ -112,9 +112,6 @@ function resize() {
 
     document.querySelector(".modal_spinner").style.visibility = "hidden";
     modalContent.style.visibility = "";
-
-    // keep from messing up page width
-    document.querySelector(".dummy_image").src = ""; 
 }
 
 function checkBounds() {
