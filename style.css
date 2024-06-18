@@ -1,9 +1,10 @@
-.goat {
-  display: block;
-  margin-top: 20px;
-  margin-left: 3%;
-  width: 50%;
-  max-width: 300px;
+body {
+  margin: 5% 10%;
+  background-color: bisque;
+}
+
+main {
+  padding: 10px;
 }
 
 .outer_logo_box {
@@ -19,6 +20,23 @@
  background-color: white;
  border-radius: 50%;
  max-width: 200px;
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  background-color: white;
+  border-radius: 30%;
+}
+
+.goat {
+  display: block;
+  margin-top: 20px;
+  margin-left: 3%;
+  width: 50%;
+  max-width: 300px;
 }
 
 .goat_title {
@@ -38,24 +56,6 @@ details {
   margin-bottom: 20px;
 }
 
-.logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  background-color: white;
-  border-radius: 30%;
-}
-
-body {
-  margin: 5% 10%;
-  background-color: bisque;
-}
-
-main {
-  padding: 10px;
-}
-
 p {
   font-size: 14pt;
   font-family: Arial, Helvetica, sans-serif;
@@ -70,7 +70,6 @@ nav a {
   color: #faf9d9;
   box-shadow: 3px 3px 3px lightgray;
 }
-
 
 nav a:hover, .active {
   background-color: #faf9d9;
@@ -202,10 +201,6 @@ button:focus {
 .inline { display: inline; }
 .hidden{ display: none; }
 
-.dummy_image {
-  visibility: hidden;
-}
-
 .modal_close_layer {
   display: none;
   position: fixed;
@@ -218,14 +213,14 @@ button:focus {
   align-content: center;
 }
 
-.welcome {
-  display: block;
-  margin: auto;
-  width: 50%;
-}
-
 .modal_spinner {
   display: inline-block;
   margin-left: 40%;
   font-size: 24pt;
+}
+
+.welcome {
+  display: block;
+  margin: auto;
+  width: 50%;
 }
