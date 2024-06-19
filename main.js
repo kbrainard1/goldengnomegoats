@@ -17,7 +17,7 @@ function closeModal() {
 
 window.onclick = function (event) {
     if (event.target == document.querySelector(".modal") ||
-    event.target == document.querySelector(".modal_close_layer")) {
+        event.target == document.querySelector(".modal_close_layer")) {
         closeModal();
     }
 }
@@ -44,7 +44,6 @@ function displayImage() {
 // "Scale this image to at most 70% of the page in terms of width/height,
 // and then set the outer div to those dimensions" is not easily expressed
 // in CSS in both firefox and chromium.
-// Also needs a dummy image to prevent the size from "sticking" across images
 function resize() {
     var windowWidth = window.innerWidth;
     var windowHeight = window.innerHeight;
@@ -54,11 +53,11 @@ function resize() {
     var screenHeight = screen.availHeight;
     if (windowWidth > screenWidth) {
         windowWidth = screenWidth;
-    } 
+    }
     if (windowHeight > screenHeight) {
         windowHeight = screenHeight;
     }
-    
+
     var smallWindowWidth = windowWidth * 0.7;
     var smallWindowHeight = windowHeight * 0.7;
 
@@ -88,24 +87,22 @@ function resize() {
     modalContent.style.width = adjustedWidth + "px";
     modalContent.style.height = adjustedHeight + "px";
 
-    // mobile is unhelpful about the positioning here
     // We want it to hover just above the gallery, inset by at most one thumbnail (100px),
     // (otherwise the height looks weird on wide screens)
     var galleryLocation = carouselGallery.getBoundingClientRect();
-    var remainingWidth = (windowWidth - adjustedWidth)/2;
+    var remainingWidth = (windowWidth - adjustedWidth) / 2;
 
     if (remainingWidth > galleryLocation.left + 100) {
         remainingWidth = galleryLocation.left + 100;
     }
     modalContent.style.marginLeft = remainingWidth + "px";
-    
+
     var scrollY = window.scrollY;
     // safari
     if (scrollY < 0) {
         scrollY = 0;
     }
 
-    
     var newHeight = galleryLocation.top - adjustedHeight + scrollY - 15;
     modalContent.style.marginTop = newHeight + "px";
 
