@@ -87,14 +87,14 @@ function resize() {
     modalContent.style.width = adjustedWidth + "px";
     modalContent.style.height = adjustedHeight + "px";
 
-    // We want it to hover just above the gallery, inset by at most one thumbnail (100px),
-    // (otherwise the height looks weird on wide screens)
+    // We want it to hover just above the gallery, centered
     var galleryLocation = carouselGallery.getBoundingClientRect();
     var remainingWidth = (windowWidth - adjustedWidth) / 2;
+    var gapToGallery = 15;
 
-    if (remainingWidth > galleryLocation.left + 100) {
-        remainingWidth = galleryLocation.left + 100;
-    }
+    // center image and gallery on screen
+    var remainingHeight = (windowHeight - adjustedHeight - 100 - gapToGallery) / 2;
+
     modalContent.style.marginLeft = remainingWidth + "px";
 
     var scrollY = window.scrollY;
@@ -103,13 +103,13 @@ function resize() {
         scrollY = 0;
     }
 
-    var newHeight = galleryLocation.top - adjustedHeight + scrollY - 15;
+    var newHeight = galleryLocation.top - adjustedHeight + scrollY - gapToGallery;
     modalContent.style.marginTop = newHeight + "px";
 
     document.querySelector(".modal_spinner").style.visibility = "hidden";
     modalContent.style.visibility = "";
     modalContent.scrollIntoView(); // if the gallery was near the top of the page, the image opens out of view, which is weird
-    window.scrollBy(0, -5); // give the image a little space
+    window.scrollBy(0, -1*remainingHeight); // give the image a little space
 }
 
 function checkBounds() {
