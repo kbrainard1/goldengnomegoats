@@ -43,6 +43,12 @@ main {
   font-size: 16pt;
 }
 
+.home_section {
+  margin-top: 15vh;
+  font-size: 18pt;
+  color:#265923;
+}
+
 .goat_link {
   font-size: 16pt;
   display: block;
@@ -54,6 +60,21 @@ main {
 
 details {
   margin-bottom: 20px;
+}
+
+.float_image {
+  max-width: 100%;
+}
+
+.photo_caption {
+  float: right;
+  width: 30%;
+  margin-left: 10px;
+}
+
+.caption {
+  text-align: center;
+  font-style: italic;
 }
 
 p {
